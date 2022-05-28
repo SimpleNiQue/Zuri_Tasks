@@ -4,13 +4,13 @@
 # count_words("The cake is done. It is a big cake!") 
 # --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
 from pathlib import Path
-
+import os
 
 def read_file_content(filename):
 
     dir = Path(Path.cwd()/ filename)
     # Check that the file exists
-    assert dir.is_file(), 'File does not exist'
+    assert any([dir.is_file(), os.path.isfile(filename)]), 'File does not exist'
 
     file_content: str
 
