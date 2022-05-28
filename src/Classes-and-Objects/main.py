@@ -9,26 +9,25 @@ class Student:
         self.__tracks = tracks
 
 
-    def __str__(self):
-        return self.__name
+    def __repr__(self):
+        return f"Name: {self.__name}\nAge: {self.__age}\nScore: {self.__score}\nTracks: {self.__tracks}"
 
     
     def change_name(self, new_name: str) -> str:
         self.__name = new_name
-        return 'Name Changed!!'
+        return self.__name
 
 
-    def change_age(self, new_age: str)-> str:
-
-        assert new_age.isdigit, f'new age ({new_age}) cannot be {type(new_age)}'
+    def change_age(self, new_age: int)-> int:
+        assert int(new_age), 'new age '+new_age+'cannot be '+type(new_age)
         
         self.__age = new_age
-        return 'Age Changed!!'
+        return self.__age
 
 
     def add_track(self, new_track: list) -> str:
-        self.__tracks += new_track
-        return 'New track added!!'
+        self.__tracks.append(new_track)
+        return self.__tracks
 
 
     def get_score(self) -> str:
